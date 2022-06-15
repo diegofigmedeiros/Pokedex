@@ -3,18 +3,19 @@ import {
   View,
   Text,
   Button,
-  StyleSheet,
-  StatusBar,
-  SafeAreaView,
 } from 'react-native';
+
+import { StyledView, StyledText } from '../styles/styles';
 
 
 export default function Home({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <StyledView >
+      <StyledText>
       <Text>Home</Text>
+      </StyledText>
       <Button title="Go to List" onPress={() => navigation.navigate('List')} />
-    </View>
+    </StyledView>
   );
 }
 

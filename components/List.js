@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { View, Text, ActivityIndicator, SafeAreaView } from 'react-native';
+import StyledView from '../styles/styles';
 
 // Remove this list after the request to the API is complete
 const mockList = [
@@ -25,9 +26,7 @@ const mockList = [
   { name: 'raticate' },
 ];
 
-
-
-export default function List({  }) {
+export default function List({ }) {
   const [loading, setLoading] = React.useState(true);
   const [list, setList] = React.useState([]);
 
@@ -40,7 +39,7 @@ export default function List({  }) {
   });
 
   return (
-    <SafeAreaView>
+    <StyledView>
       {loading && <ActivityIndicator size={'large'} />}
       {list.map((i) => {
         return (
@@ -49,6 +48,6 @@ export default function List({  }) {
           </View>
         );
       })}
-    </SafeAreaView>
+    </StyledView>
   );
 }
