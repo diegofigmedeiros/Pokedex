@@ -1,8 +1,13 @@
-## PUT YOUR REFERENCES HERE
+## REFERENCES
 
-### React Navigation Docs
+---
+### React Native Docs
+> https://reactnative.dev/docs/
 
-> https://reactnavigation.org/docs/stack-navigator/
+### React Navigation
+
+> https://reactnavigation.org/docs/
+
 
 ### ReactJS - Hooks
 
@@ -12,5 +17,3 @@
 
 > https://docs.expo.dev/guides/using-styled-components/
 
-### React Native Docs
-> https://reactnative.dev/docs/
