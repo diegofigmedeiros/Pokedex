@@ -1,10 +1,11 @@
 {
   "expo": {
     "name": "taqtile-internship-challenge---pokemon",
-    "slug": "snack-bdd6194b-b068-4364-8539-5ac5da6cab04",
+    "slug": "taqtile-internship-challenge---pokemon",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",

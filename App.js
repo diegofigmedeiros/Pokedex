@@ -1,22 +1,23 @@
-import * as React from 'react';
-import { View, Text, SafeAreaView } from 'react-native'
-import List from './components/List';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import * as React from 'react'
+import { View, Text, StyleSheet, StatusBar, SafeAreaView } from 'react-native';
 
-const Stack = createStackNavigator();
+import List from './components/List';
+import FlatListBasics from './components/Listinha';
 
 export default function App() {
   return (
-  // <View>
-  //   <Text>
-  //     Say Hello to my little friend
-  //   </Text>
-  // </View>
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Jooj" component={List} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <SafeAreaView style={styles.container}>
+      <StatusBar/>
+      <FlatListBasics/>
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
