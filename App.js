@@ -12,8 +12,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 
 // Components
-import Home from './components/Home';
-import List from './components/List';
+import Home from './src/components/Home';
+import List from './src/components/List';
+import Fetch from './src/components/Fetch';
 
 
 
@@ -23,6 +24,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name='Home' component={Home}/>
         <Stack.Screen name='List' component={List}/>
+        <Stack.Screen name='Fetch' component={Fetch}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

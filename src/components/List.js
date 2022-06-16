@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View, Button } from 'react-native';
 import { Container, ListItem, Item } from '../styles/styles';
 
 
@@ -43,10 +43,11 @@ const pokemons =[
 ]
 
 
-export default function List() {
+export default function List({ navigation }) {
   return (
     <View >
       <Item>Pokemons</Item>
+      <Button title="Fetch" onPress={() => navigation.navigate('Fetch')} />
       <FlatList
         data={pokemons}
         keyExtractor={pokemons.name}

@@ -1,9 +1,5 @@
 import * as React from 'react';
-import {
-  View,
-  Text,
-  Button,
-} from 'react-native';
+import { View, Text, Button} from 'react-native';
 
 import { Container, Item } from '../styles/styles';
 
