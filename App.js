@@ -14,7 +14,7 @@ const Stack = createNativeStackNavigator();
 // Components
 import Home from './components/Home';
 import List from './components/List';
-import FlatListBasics from './components/Listinha';
+
 
 
 export default function App() {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
-import { Container, Titlezaum, Title } from '../styles/styles';
+import { Container, ListItem, Item } from '../styles/styles';
 
 
 const pokemons =[
@@ -23,19 +23,39 @@ const pokemons =[
   { name: 'pidgeotto'  },
   { name: 'pidgeot'    },
   { name: 'rattata'    },
-  { name: 'raticate'   }, 
+  { name: 'raticate'   },
+  { name: 'aaa'     },
+  { name: 'bbb'     },
+  { name: 'ccc'   },
+  { name: 'ddd'     },
+  { name: 'eee'  },
+  { name: 'fff'    },
+  { name: 'ggg'    },
+  { name: 'jjj'   }, 
+  { name: 'aaa'     },
+  { name: 'bbb'     },
+  { name: 'ccc'   },
+  { name: 'ddd'     },
+  { name: 'eee'  },
+  { name: 'fff'    },
+  { name: 'ggg'    },
+  { name: 'jjj'   }, 
 ]
 
-export default function FlatListBasics(props) {
+
+export default function List() {
   return (
-    <Container >
-      <Titlezaum>Pokemons</Titlezaum>
+    <View >
+      <Item>Pokemons</Item>
       <FlatList
         data={pokemons}
+        keyExtractor={pokemons.name}
         renderItem={({item}) => (
-          <Title >{item.name}</Title>
+          <View>
+            <ListItem>{item.name}</ListItem>
+          </View>
         )}
       />
-    </Container>
+    </View>
   );
 }
