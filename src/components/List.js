@@ -2,7 +2,7 @@ import * as React from 'react';
 import { FlatList, StyleSheet, Text, View, Button, ActivityIndicator } from 'react-native';
 import { Container, ListItem, Item } from '../styles/styles';
 
-//import { fetchAPI } from '../services/fetchpokemonlist';
+
 
 export default function List({ navigation }) {
   const [list, setList] = React.useState([]);
@@ -13,29 +13,34 @@ export default function List({ navigation }) {
     try {
       return fetch('https://pokeapi.co/api/v2/pokemon')
       .then((response) => response.json())
-      .then((json) => {
-        setList(json.results);
+      .then((pokemonlist) => {
+        setList(pokemonlist.results);
       });
     } catch (error) {
       console.error(error);
     } finally {
-      setLoading(false);
+
     }
   }
 
   React.useEffect(() => {
     setTimeout(() => {
-      fetchAPI()
-    }, 2000);
+      fetchAPI();
+      setLoading(false);
+    }, 1000);
   }, []);
 
+  if (loading) {
+    return (
+      <View>
+        {loading && <ActivityIndicator size={'large'} />}
+      </View>
+    )
+  }
 
   return (
     <View>
       <Item>Pokemons</Item>
-      {loading && <ActivityIndicator size={'large'} />}
-      {
-      <View >
         <FlatList
           data={list}
           keyExtractor={list.name}
@@ -50,7 +55,5 @@ export default function List({ navigation }) {
           )}
         />
       </View>
-      }
-    </View>
   )
 }

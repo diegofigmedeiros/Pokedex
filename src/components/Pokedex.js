@@ -1,46 +1,82 @@
 import * as React from 'react';
-import { FlatList, StyleSheet, Text, View, Button, Image } from 'react-native';
+import { FlatList, StyleSheet, Text, View, Button, Image, ActivityIndicator } from 'react-native';
 import { Container, ListItem, Item } from '../styles/styles';
 
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 50,
+  },
+  tinyLogo: {
+    width: 50,
+    height: 50,
+  },
+  logo: {
+    width: 66,
+    height: 58,
+  },
+});
 
-export default function Pokedex({ route, navigation }) {
-    const [pokemon, setPokemon] = React.useState([]);
-    const { pokename } = route.params;
+export default function Pokedex({ route }) {
+  const {pokename} = route.params;
+  
+  const [pokemon, setPokemon] = React.useState([]);
+  const [pokeimage, setPokeImage] = React.useState('');
+  const [loading, setLoading] = React.useState(true);
 
-    
+  const fetchPokemon = async (pokename) => {
+    try {
+      return fetch('https://pokeapi.co/api/v2/pokemon/' + pokename)
+      .then((response) => response.json())
+      .then((pokemon) => {
+        setPokemon(pokemon);
+      });
+    } catch (error) {
+      console.error(error);
+    } finally {
 
-    React.useEffect(() => {
-      let didCancel = false;
-    
-      async function fetchAPI() {
-        let url = 'https://pokeapi.co/api/v2/pokemon/' + pokename;
-        const response = await fetch(url);
-        if (!didCancel) { 
-          let data = await response.json()
-          let pokemon = data
-          setPokemon(pokemon)
-        //   console.log(pokemon)
-        //   console.log(pokemon.id)
-        //   console.log( JSON.stringify(pokemon.id))
-        }
-      }
-    
-      fetchAPI();
-    
-      return () => { didCancel = true; };
-    }, []);
-
-
-    return (
-        <View>
-            <Image
-              source={{
-                uri: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + pokemon.id + '.png',
-              }}
-              />
-            <ListItem>{pokemon.name}</ListItem>
-            <ListItem>{pokemon.weight}</ListItem>
-            <ListItem>{pokemon.height}</ListItem>
-        </View>
-    );
+    }
   }
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      fetchPokemon(pokename);
+    }, 1000);
+
+  }, []);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setPokeImage('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + JSON.stringify(pokemon.id) + '.png');
+    }, 1000);
+  }, [pokemon]);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, [pokeimage]);
+
+
+  if (loading) {
+    return (
+      <View>
+        {loading && <ActivityIndicator size={'large'} />}
+      </View>
+    )
+  }
+
+  return (
+    <View >
+      <Image
+        style={styles.tinyLogo}
+        source={{
+          uri: pokeimage,
+        }}
+        />
+      <ListItem>{pokemon.id}</ListItem>
+      <ListItem>{pokemon.name}</ListItem>
+      <ListItem>{pokemon.weight}</ListItem>
+      <ListItem>{pokemon.height}</ListItem>
+    </View>
+  );
+}
