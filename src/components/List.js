@@ -3,56 +3,39 @@ import { FlatList, StyleSheet, Text, View, Button } from 'react-native';
 import { Container, ListItem, Item } from '../styles/styles';
 
 
-const pokemons =[
-  { name: 'bulbasaur'  },
-  { name: 'ivysaur'    },
-  { name: 'venusaur'   },
-  { name: 'charmander' },
-  { name: 'charmeleon' },
-  { name: 'charizard'  },
-  { name: 'squirtle'   },
-  { name: 'wartortle'  },
-  { name: 'blastoise'  },
-  { name: 'caterpie'   },
-  { name: 'metapod'    },
-  { name: 'butterfree' },
-  { name: 'weedle'     },
-  { name: 'kakuna'     },
-  { name: 'beedrill'   },
-  { name: 'pidgey'     },
-  { name: 'pidgeotto'  },
-  { name: 'pidgeot'    },
-  { name: 'rattata'    },
-  { name: 'raticate'   },
-  { name: 'aaa'     },
-  { name: 'bbb'     },
-  { name: 'ccc'   },
-  { name: 'ddd'     },
-  { name: 'eee'  },
-  { name: 'fff'    },
-  { name: 'ggg'    },
-  { name: 'jjj'   }, 
-  { name: 'aaa'     },
-  { name: 'bbb'     },
-  { name: 'ccc'   },
-  { name: 'ddd'     },
-  { name: 'eee'  },
-  { name: 'fff'    },
-  { name: 'ggg'    },
-  { name: 'jjj'   }, 
-]
-
-
 export default function List({ navigation }) {
+  const [list, setList] = React.useState([]);
+
+  React.useEffect(() => {
+    let didCancel = false;
+  
+    async function fetchAPI() {
+      let url = 'https://pokeapi.co/api/v2/pokemon';
+      const response = await fetch(url);
+      if (!didCancel) { 
+        let data = await response.json()
+        let pokemonlist = data.results
+        setList(pokemonlist)
+      }
+    }
+  
+    fetchAPI();
+  
+    return () => { didCancel = true; };
+  }, []);
+
   return (
     <View >
       <Item>Pokemons</Item>
-      <Button title="Fetch" onPress={() => navigation.navigate('Fetch')} />
       <FlatList
-        data={pokemons}
-        keyExtractor={pokemons.name}
+        data={list}
+        keyExtractor={list.name}
         renderItem={({item}) => (
           <View>
+            <Button title={item.name} onPress={() => navigation.navigate('Pokedex', {
+                pokename: item.name
+              }
+              )} />
             <ListItem>{item.name}</ListItem>
           </View>
         )}

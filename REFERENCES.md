@@ -17,3 +17,6 @@
 
 > https://docs.expo.dev/guides/using-styled-components/
 
+
+
+> https://github.com/facebook/react/issues/14326
