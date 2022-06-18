@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { FlatList, StyleSheet, Text, View, Button, TouchableOpacity, ActivityIndicator } from 'react-native';
+
 import { Container, ListItem, Item } from '../styles/styles';
 
 

@@ -18,9 +18,9 @@ const styles = StyleSheet.create({
 
 export default function Pokedex({ route }) {
   const {pokename} = route.params;
-  
+  const [pokeStats, setPokeStats] = React.useState([]);
   const [pokemon, setPokemon] = React.useState([]);
-  const [pokeimage, setPokeImage] = React.useState('');
+  const [pokeImage, setPokeImage] = React.useState('');
   const [loading, setLoading] = React.useState(true);
 
   const fetchPokemon = async (pokename) => {
@@ -29,6 +29,7 @@ export default function Pokedex({ route }) {
       .then((response) => response.json())
       .then((pokemon) => {
         setPokemon(pokemon);
+        setPokeStats(pokemon.stats)
       });
     } catch (error) {
       console.error(error);
@@ -59,7 +60,7 @@ export default function Pokedex({ route }) {
     setTimeout(() => {
       setLoading(false);
     }, 3000);
-  }, [pokeimage]);
+  }, [pokeImage]);
 
   //===============================================================
 
@@ -76,16 +77,28 @@ export default function Pokedex({ route }) {
       <Image
         style={styles.tinyLogo}
         source={{
-          uri: pokeimage,
+          uri: pokeImage,
         }}
       />
-      <ListItem>{pokemon.id}</ListItem>
-      <ListItem>{pokemon.name}</ListItem>
-      <ListItem>{pokemon.weight}</ListItem>
-      <ListItem>{pokemon.height}</ListItem>
-      <FlatList>
-        
-      </FlatList>
+      <ListItem>ID:     {pokemon.id}</ListItem>
+      <ListItem>NAME:   {pokemon.name}</ListItem>
+      <ListItem>WEIGHT: {pokemon.weight}</ListItem>
+      <ListItem>HEIGHT: {pokemon.height}</ListItem>
+      <ListItem>{pokeStats[0].stat.name.toUpperCase()} - {pokeStats[0].base_stat} </ListItem>
+      <ListItem>{pokeStats[1].stat.name.toUpperCase()} - {pokeStats[1].base_stat} </ListItem>
+      <ListItem>{pokeStats[2].stat.name.toUpperCase()} - {pokeStats[2].base_stat} </ListItem>
+      
+      {/* <FlatList
+          data={pokeStats}
+          keyExtractor={(item) => item.stat.name}
+          renderItem={({item}) => (
+            <View>
+              <ListItem>
+                {item.stat.name} - {item.base_stat}
+              </ListItem>
+            </View>
+          )}
+        /> */}
     </View>
   );
 }
