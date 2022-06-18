@@ -7,6 +7,8 @@ export default function Pokedex({ route, navigation }) {
     const [pokemon, setPokemon] = React.useState([]);
     const { pokename } = route.params;
 
+    
+
     React.useEffect(() => {
       let didCancel = false;
     
@@ -31,11 +33,11 @@ export default function Pokedex({ route, navigation }) {
 
     return (
         <View>
-            {/* <Image
+            <Image
               source={{
-                uri: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + JSON.stringify(pokemon.id) + '.png',
+                uri: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + pokemon.id + '.png',
               }}
-              /> */}
+              />
             <ListItem>{pokemon.name}</ListItem>
             <ListItem>{pokemon.weight}</ListItem>
             <ListItem>{pokemon.height}</ListItem>
