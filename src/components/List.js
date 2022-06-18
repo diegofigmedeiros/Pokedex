@@ -2,7 +2,7 @@ import * as React from 'react';
 import { FlatList, StyleSheet, Text, View, Button, TouchableOpacity, ActivityIndicator } from 'react-native';
 
 import { Container, ListItem, Item } from '../styles/styles';
-
+import ListImage from './ListImage';
 
 
 export default function List({ navigation }) {
@@ -47,11 +47,16 @@ export default function List({ navigation }) {
           keyExtractor={(item) => item.name}
           renderItem={({item}) => (
             <View>
-              <Button title={item.name} onPress={() => navigation.navigate('Pokedex', {
-                  pokename: item.name
-                }
-                )} />
-              <ListItem>{item.name}</ListItem>
+            <TouchableOpacity 
+              // style={styles.button} 
+              onPress={() => navigation.navigate('Pokedex', {pokename: item.name})}
+            >
+              <ListItem>
+                <ListImage name={item.name}/>
+                <Text>{item.name}</Text>
+              </ListItem>
+
+            </TouchableOpacity>
             </View>
           )}
         />
