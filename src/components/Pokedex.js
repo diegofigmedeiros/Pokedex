@@ -37,6 +37,11 @@ export default function Pokedex({ route }) {
     }
   }
 
+  const fetchPokemonImage = async (pokemon) => {
+    setPokeImage(`https://raw.githubusercontent.com/PokeAPI/` +
+    `sprites/master/sprites/pokemon/other/official-artwork/${JSON.stringify(pokemon.id)}.png`);
+  }
+
   React.useEffect(() => {
     setTimeout(() => {
       fetchPokemon(pokename);
@@ -46,7 +51,7 @@ export default function Pokedex({ route }) {
 
   React.useEffect(() => {
     setTimeout(() => {
-      setPokeImage('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + JSON.stringify(pokemon.id) + '.png');
+      fetchPokemonImage(pokemon);
     }, 1000);
   }, [pokemon]);
 
@@ -56,6 +61,7 @@ export default function Pokedex({ route }) {
     }, 3000);
   }, [pokeimage]);
 
+  //===============================================================
 
   if (loading) {
     return (
@@ -72,11 +78,14 @@ export default function Pokedex({ route }) {
         source={{
           uri: pokeimage,
         }}
-        />
+      />
       <ListItem>{pokemon.id}</ListItem>
       <ListItem>{pokemon.name}</ListItem>
       <ListItem>{pokemon.weight}</ListItem>
       <ListItem>{pokemon.height}</ListItem>
+      <FlatList>
+        
+      </FlatList>
     </View>
   );
 }

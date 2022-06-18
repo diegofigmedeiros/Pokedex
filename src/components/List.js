@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FlatList, StyleSheet, Text, View, Button, ActivityIndicator } from 'react-native';
+import { FlatList, StyleSheet, Text, View, Button, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Container, ListItem, Item } from '../styles/styles';
 
 
@@ -43,7 +43,7 @@ export default function List({ navigation }) {
       <Item>Pokemons</Item>
         <FlatList
           data={list}
-          keyExtractor={list.name}
+          keyExtractor={(item) => item.name}
           renderItem={({item}) => (
             <View>
               <Button title={item.name} onPress={() => navigation.navigate('Pokedex', {
