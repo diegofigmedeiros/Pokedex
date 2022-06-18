@@ -12,19 +12,15 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 
 // Components
-import Home from './src/components/Home';
 import List from './src/components/List';
-import Fetch from './src/components/Fetch';
-
-
+import Pokedex from './src/components/Pokedex';
 
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name='Home' component={Home}/>
         <Stack.Screen name='List' component={List}/>
-        <Stack.Screen name='Fetch' component={Fetch}/>
+        <Stack.Screen name='Pokedex' component={Pokedex}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
