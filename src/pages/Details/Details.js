@@ -63,6 +63,7 @@ export default function Details({ route }) {
 
   return (
       <ScrollView>
+
         <Styled.ImagePokemonContainer>
           <Styled.LargeImage source={{
               uri: pokeImage,
@@ -82,15 +83,14 @@ export default function Details({ route }) {
               </Styled.Section1Column>
             </Styled.Section1Row>
           </Styled.PokemonStatsSection1>
-
         </Styled.ImagePokemonContainer>
 
           <Styled.PokemonStatsSection2>
             <Styled.Section2Row>
               <Styled.Section2Column1>
-                <Styled.Section2Text>{pokeStats[0].stat.name.toUpperCase()}</Styled.Section2Text>
-                <Styled.Section2Text>{pokeStats[1].stat.name.toUpperCase()}</Styled.Section2Text>
-                <Styled.Section2Text>{pokeStats[2].stat.name.toUpperCase()}</Styled.Section2Text>
+                <Styled.Section2Text1>{pokeStats[0].stat.name.toUpperCase()}</Styled.Section2Text1>
+                <Styled.Section2Text1>{pokeStats[1].stat.name.toUpperCase()}</Styled.Section2Text1>
+                <Styled.Section2Text1>{pokeStats[2].stat.name.toUpperCase()}</Styled.Section2Text1>
               </Styled.Section2Column1>
               <Styled.Section2Column2>
                 <Styled.Section2Column2Row1>
@@ -104,19 +104,19 @@ export default function Details({ route }) {
                   </Styled.Section2Column2Row1>
               </Styled.Section2Column2>
               <Styled.Section2Column3>
-                <Styled.Section2Text>{pokeStats[0].base_stat} </Styled.Section2Text>
-                <Styled.Section2Text>{pokeStats[1].base_stat} </Styled.Section2Text>
-                <Styled.Section2Text>{pokeStats[2].base_stat} </Styled.Section2Text>
+                <Styled.Section2Text3>{pokeStats[0].base_stat}</Styled.Section2Text3>
+                <Styled.Section2Text3>{pokeStats[1].base_stat}</Styled.Section2Text3>
+                <Styled.Section2Text3>{pokeStats[2].base_stat}</Styled.Section2Text3>
               </Styled.Section2Column3>
             </Styled.Section2Row>
             <Styled.Section2Row>
-              <ShareButton 
-                name=   {pokemon.name} 
-                weight= {pokemon.weight} 
-                height= {pokemon.height} 
-                hp=     {pokeStats[0].base_stat} 
-                attack= {pokeStats[1].base_stat} 
-                defense={pokeStats[2].base_stat} 
+              <ShareButton
+                name=   {pokemon.name}
+                weight= {pokemon.weight}
+                height= {pokemon.height}
+                hp=     {pokeStats[0].base_stat}
+                attack= {pokeStats[1].base_stat}
+                defense={pokeStats[2].base_stat}
                 />
             </Styled.Section2Row>
           </Styled.PokemonStatsSection2>

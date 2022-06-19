@@ -13,8 +13,8 @@ export const PokemonStatsSection1 = styled.SafeAreaView`
   align-items: center;
   width: 100%;
   background-color: #fff;
-  border-top-right-radius: 50px;
-  border-top-left-radius: 50px;
+  border-top-right-radius: 50;
+  border-top-left-radius: 50;
 `;
 
 export const Section1Row = styled.SafeAreaView`
@@ -42,6 +42,8 @@ export const PokemonStatsSection2 = styled.SafeAreaView`
   background-color: #fff;
   align-items: center;
   justify-content: center;
+  border-bottom-right-radius: 50;
+  border-bottom-left-radius: 50;
 `;
 
 export const Section2Row = styled.SafeAreaView`
@@ -65,7 +67,7 @@ export const Section2Column2 = styled.SafeAreaView`
 
 export const Section2Column2Row1 = styled.SafeAreaView`
   height: 27px;
-  width: 100;
+  width: 100%;
 `;
 
 export const Section2Column3 = styled.SafeAreaView`
@@ -74,7 +76,16 @@ export const Section2Column3 = styled.SafeAreaView`
   flex-wrap: wrap;
 `;
 
-export const Section2Text = styled.Text`
+export const Section2Text1 = styled.Text`
+  padding-left: 16px;
+  padding-right: 16px;
+  font-size: 16px;
+  color: #1b1e23;
+  width: 100%;
+`;
+
+export const Section2Text3 = styled.Text`
+  text-align: right;
   padding-left: 16px;
   padding-right: 16px;
   font-size: 16px;
@@ -90,7 +101,7 @@ export const ShareButton = styled.TouchableOpacity`
   margin: 10px;
   background-color: #478070;
   text-align: center;
-  border-radius: 8px;
+  border-radius: 50;
   padding: 16px;
 `;
 
