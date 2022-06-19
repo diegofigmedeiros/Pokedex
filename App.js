@@ -13,14 +13,18 @@ const Stack = createNativeStackNavigator();
 
 // Components
 import List from './src/components/List';
-import Pokedex from './src/components/Pokedex';
+import Details from './src/components/Details';
 
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name='List' component={List}/>
-        <Stack.Screen name='Pokedex' component={Pokedex}/>
+        <Stack.Screen name='Pokemons' 
+          component={List}/>
+        <Stack.Screen name='Details' 
+          component={Details} 
+          options={({ route }) => ({ title: route.params.name })}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

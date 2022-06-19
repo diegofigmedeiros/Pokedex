@@ -1,8 +1,10 @@
 import * as React from 'react';
-import { FlatList, StyleSheet, Text, View, Button, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { FlatList, Text, View, TouchableOpacity } from 'react-native';
 
-import { Container, ListItem, Item } from '../styles/styles';
+import { ContainerFluid, Container, ListItem, Item } from '../styles/styles';
+
 import ListImage from './ListImage';
+import LoadingScreen from './LoadingScreen';
 
 
 export default function List({ navigation }) {
@@ -19,8 +21,6 @@ export default function List({ navigation }) {
       });
     } catch (error) {
       console.error(error);
-    } finally {
-
     }
   }
 
@@ -33,33 +33,28 @@ export default function List({ navigation }) {
 
   if (loading) {
     return (
-      <View>
-        {loading && <ActivityIndicator size={'large'} />}
-      </View>
+      <LoadingScreen size='large'/>
     )
   }
 
   return (
-    <View>
-      <Item>Pokemons</Item>
+    <Container>
         <FlatList
           data={list}
           keyExtractor={(item) => item.name}
           renderItem={({item}) => (
-            <View>
+          <View>
             <TouchableOpacity 
-              // style={styles.button} 
-              onPress={() => navigation.navigate('Pokedex', {pokename: item.name})}
+            onPress={() => navigation.navigate('Details', {pokename: item.name, name: item.name } )}
             >
               <ListItem>
                 <ListImage name={item.name}/>
                 <Text>{item.name}</Text>
               </ListItem>
-
             </TouchableOpacity>
-            </View>
+          </View>
           )}
-        />
-      </View>
+          />
+    </Container>
   )
 }

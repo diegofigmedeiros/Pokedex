@@ -1,20 +1,9 @@
 import * as React from 'react';
 import { FlatList, StyleSheet, Text, View, Button, Image, ActivityIndicator } from 'react-native';
-import { Container, ListItem, Item } from '../styles/styles';
+import { TinyImage } from '../styles/styles';
 
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 50,
-  },
-  tinyLogo: {
-    width: 25,
-    height: 25,
-  },
-  logo: {
-    width: 66,
-    height: 58,
-  },
-});
+import LoadingScreen from './LoadingScreen';
+
 
 export default function ListImage( props ) {
   const [pokemon, setPokemon] = React.useState([]);
@@ -30,9 +19,8 @@ export default function ListImage( props ) {
       });
     } catch (error) {
       console.error(error);
-    } finally {
-
     }
+
   }
 
   const fetchPokemonImage = async (pokemon) => {
@@ -63,18 +51,17 @@ export default function ListImage( props ) {
 
   if (loading) {
     return (
-      <View>
-        {loading && <ActivityIndicator size={'small'} />}
-      </View>
+        <LoadingScreen size='small'/>
     )
   }
 
   return (
-      <Image
-        style={styles.tinyLogo}
+    <View>
+      <TinyImage
         source={{
-          uri: pokeImage,
+            uri: pokeImage,
         }}
-      />
+        />
+    </View>
   );
 }

@@ -1,22 +1,12 @@
 import * as React from 'react';
 import { FlatList, StyleSheet, Text, View, Button, Image, ActivityIndicator } from 'react-native';
-import { Container, ListItem, Item } from '../styles/styles';
+import { ContainerFluid, Container,  ListItem, LargeImage, } from '../styles/styles';
 
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 50,
-  },
-  tinyLogo: {
-    width: 50,
-    height: 50,
-  },
-  logo: {
-    width: 66,
-    height: 58,
-  },
-});
 
-export default function Pokedex({ route }) {
+import LoadingScreen from './LoadingScreen';
+
+
+export default function Details({ route }) {
   const {pokename} = route.params;
   const [pokeStats, setPokeStats] = React.useState([]);
   const [pokemon, setPokemon] = React.useState([]);
@@ -33,8 +23,6 @@ export default function Pokedex({ route }) {
       });
     } catch (error) {
       console.error(error);
-    } finally {
-
     }
   }
 
@@ -66,16 +54,13 @@ export default function Pokedex({ route }) {
 
   if (loading) {
     return (
-      <View>
-        {loading && <ActivityIndicator size={'large'} />}
-      </View>
+      <LoadingScreen size='large'/>
     )
   }
 
   return (
-    <View >
-      <Image
-        style={styles.tinyLogo}
+    <Container>
+      <LargeImage
         source={{
           uri: pokeImage,
         }}
@@ -87,18 +72,6 @@ export default function Pokedex({ route }) {
       <ListItem>{pokeStats[0].stat.name.toUpperCase()} - {pokeStats[0].base_stat} </ListItem>
       <ListItem>{pokeStats[1].stat.name.toUpperCase()} - {pokeStats[1].base_stat} </ListItem>
       <ListItem>{pokeStats[2].stat.name.toUpperCase()} - {pokeStats[2].base_stat} </ListItem>
-
-      {/* <FlatList
-          data={pokeStats}
-          keyExtractor={(item) => item.stat.name}
-          renderItem={({item}) => (
-            <View>
-              <ListItem>
-                {item.stat.name} - {item.base_stat}
-              </ListItem>
-            </View>
-          )}
-        /> */}
-    </View>
+    </Container>
   );
 }
