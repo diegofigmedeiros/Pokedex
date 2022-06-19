@@ -1,6 +1,8 @@
 
 import React from 'react';
-import { Share, View, Button } from 'react-native';
+import { Share, SafeAreaView } from 'react-native';
+
+import * as Styled from './styles'
 
 export default function ShareButton ( props ) {
 
@@ -24,8 +26,10 @@ export default function ShareButton ( props ) {
   };
 
   return (
-    <View >
-      <Button onPress={onShare} title="Share" />
-    </View>
+    <SafeAreaView>
+      <Styled.ShareButton onPress={onShare} >
+        <Styled.ShareButtonText>Compartilhar</Styled.ShareButtonText>
+      </Styled.ShareButton>
+    </SafeAreaView>
   );
 };
