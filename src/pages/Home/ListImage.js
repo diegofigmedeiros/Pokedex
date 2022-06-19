@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { View } from 'react-native';
-import { TinyImage, Container, ContainerFluid } from '../styles/styles';
+import { SafeAreaView, View } from 'react-native';
 
-import LoadingScreen from './LoadingScreen';
+import * as Styled from './styles'
+import LoadingScreen from '../Shared/LoadingScreen';
 
 
 export default function ListImage( props ) {
@@ -44,6 +44,7 @@ export default function ListImage( props ) {
   React.useEffect(() => {
     setTimeout(() => {
       setLoading(false);
+      console.log(pokeImage)
     }, 3000);
   }, [pokeImage]);
 
@@ -56,12 +57,12 @@ export default function ListImage( props ) {
   }
 
   return (
-    <View>
-      <TinyImage
+    <SafeAreaView>
+      <Styled.TinyImage
         source={{
             uri: pokeImage,
         }}
         />
-    </View>
+    </SafeAreaView>
   );
 }

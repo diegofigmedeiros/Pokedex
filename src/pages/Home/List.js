@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { FlatList, Text, View, TouchableOpacity } from 'react-native';
+import { FlatList, Text, View, TouchableOpacity, SafeAreaView } from 'react-native';
 
-import { ContainerList, ListItem  } from '../styles/styles';
+import * as Styled from './styles'
+
 
 import ListImage from './ListImage';
-import LoadingScreen from './LoadingScreen';
+import LoadingScreen from '../Shared/LoadingScreen';
 
 
 export default function List({ navigation }) {
@@ -38,7 +39,7 @@ export default function List({ navigation }) {
   }
 
   return (
-    <ContainerList>
+    <SafeAreaView>
         <FlatList
           data={list}
           keyExtractor={(item) => item.name}
@@ -47,14 +48,14 @@ export default function List({ navigation }) {
             <TouchableOpacity 
             onPress={() => navigation.navigate('Details', {pokename: item.name, name: item.name } )}
             >
-              <ListItem>
+              <View>
                 <ListImage name={item.name}/>
                 <Text>{item.name}</Text>
-              </ListItem>
+              </View>
             </TouchableOpacity>
           </View>
           )}
           />
-    </ContainerList>
+    </SafeAreaView>
   )
 }

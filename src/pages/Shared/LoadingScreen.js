@@ -1,14 +1,15 @@
 
 import * as React from 'react';
 import { ActivityIndicator } from 'react-native';
-import { ContainerFluid } from '../styles/styles';
+
+import * as Styled from './styles'
 
 
 export default function LoadingScreen( props ) {
 
   return (
-    <ContainerFluid>
+    <Styled.ContainerFluid>
         <ActivityIndicator size={props.size} />
-    </ContainerFluid>
+    </Styled.ContainerFluid>
   )
 }

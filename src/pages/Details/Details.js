@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { FlatList, StyleSheet, Text, View, Button, Image, ActivityIndicator, SafeAreaView, ScrollView } from 'react-native';
-import { ContainerFluid,  ListItem, LargeImage } from '../styles/styles';
+import { ScrollView, View, SafeAreaView, Text  } from 'react-native';
 
+import * as Styled from './styles'
 
-import LoadingScreen from './LoadingScreen';
+import LoadingScreen from '../Shared/LoadingScreen';
+import ShareButton from './ShareButton';
 
 
 export default function Details({ route }) {
@@ -27,8 +28,7 @@ export default function Details({ route }) {
   }
 
   const fetchPokemonImage = async (pokemon) => {
-    setPokeImage(`https://raw.githubusercontent.com/PokeAPI/` +
-    `sprites/master/sprites/pokemon/other/official-artwork/${JSON.stringify(pokemon.id)}.png`);
+    setPokeImage(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${JSON.stringify(pokemon.id)}.png`);
   }
 
   React.useEffect(() => {
@@ -47,7 +47,8 @@ export default function Details({ route }) {
   React.useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 3000);
+      console.log(pokeImage)
+    }, 5000);
   }, [pokeImage]);
 
   //===============================================================
@@ -60,19 +61,25 @@ export default function Details({ route }) {
 
   return (
       <ScrollView>
-        <ContainerFluid>
-          <LargeImage
-            source={{
-              uri: pokeImage,
-            }}
-          />
-          <ListItem>NAME: {pokemon.name}</ListItem>
-          <ListItem>WEIGHT: {pokemon.weight}</ListItem>
-          <ListItem>HEIGHT: {pokemon.height}</ListItem>
-          <ListItem>{pokeStats[0].stat.name.toUpperCase()} - {pokeStats[0].base_stat} </ListItem>
-          <ListItem>{pokeStats[1].stat.name.toUpperCase()} - {pokeStats[1].base_stat} </ListItem>
-          <ListItem>{pokeStats[2].stat.name.toUpperCase()} - {pokeStats[2].base_stat} </ListItem>
-        </ContainerFluid>
+        <SafeAreaView>
+        <Styled.LargeImage source={{
+            uri: pokeImage,
+        }}/>
+          <Text>NAME: {pokemon.name}</Text>
+          <Text>WEIGHT: {pokemon.weight}</Text>
+          <Text>HEIGHT: {pokemon.height}</Text>
+          <Text>{pokeStats[0].stat.name.toUpperCase()} - {pokeStats[0].base_stat} </Text>
+          <Text>{pokeStats[1].stat.name.toUpperCase()} - {pokeStats[1].base_stat} </Text>
+          <Text>{pokeStats[2].stat.name.toUpperCase()} - {pokeStats[2].base_stat} </Text>
+          <ShareButton 
+            name=   {pokemon.name} 
+            weight= {pokemon.weight} 
+            height= {pokemon.height} 
+            hp=     {pokeStats[0].base_stat} 
+            attack= {pokeStats[1].base_stat} 
+            defense={pokeStats[2].base_stat} 
+            />
+          </SafeAreaView>
       </ScrollView>
   );
 }

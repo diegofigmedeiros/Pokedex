@@ -11,8 +11,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 
 // Components
-import List from './src/components/List';
-import Details from './src/components/Details';
+import List from './src/pages/Home/List';
+import Details from './src/pages/Details/Details';
 
 export default function App() {
   return (
