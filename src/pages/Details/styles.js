@@ -13,6 +13,8 @@ export const PokemonStatsSection1 = styled.SafeAreaView`
   align-items: center;
   width: 100%;
   background-color: #fff;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
 `;
 
 export const Section1Row = styled.SafeAreaView`
@@ -49,6 +51,12 @@ export const Section2Row = styled.SafeAreaView`
   padding: 14px;
 `;
 
+export const Section2Column = styled.SafeAreaView`
+  flex: 1;
+  flex-direction: column;
+  flex-wrap: wrap;
+`;
+
 export const Section2Text = styled.Text`
   padding-left: 16px;
   padding-right: 16px;
@@ -63,7 +71,7 @@ export const ShareButtonContainer = styled.SafeAreaView`
 
 export const ShareButton = styled.TouchableOpacity`
   margin: 10px;
-  background-color: #2629;
+  background-color: #478070;
   text-align: center;
   border-radius: 8px;
   padding: 16px;

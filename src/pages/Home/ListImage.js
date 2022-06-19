@@ -44,7 +44,6 @@ export default function ListImage( props ) {
   React.useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-      console.log(pokeImage)
     }, 3000);
   }, [pokeImage]);
 

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { ScrollView, View, SafeAreaView, Text  } from 'react-native';
+import { ProgressBar } from 'react-native-paper';
 
 import * as Styled from './styles'
 
@@ -47,7 +48,7 @@ export default function Details({ route }) {
   React.useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-      console.log(pokeImage)
+      // console.log(pokeImage)
     }, 5000);
   }, [pokeImage]);
 
@@ -66,8 +67,7 @@ export default function Details({ route }) {
               uri: pokeImage,
           }}/>
         </Styled.ImagePokemonContainer>
-
-            {/* <Text>NAME: {pokemon.name}</Text> */}
+        <Styled.ImagePokemonContainer>
           <Styled.PokemonStatsSection1>
             <Styled.Section1Row>
               <Styled.Section1Column>
@@ -80,17 +80,21 @@ export default function Details({ route }) {
               </Styled.Section1Column>
             </Styled.Section1Row>
           </Styled.PokemonStatsSection1>
+        </Styled.ImagePokemonContainer>
           <Styled.PokemonStatsSection2>
             <Styled.Section2Row>
               <Styled.Section2Text>{pokeStats[0].stat.name.toUpperCase()}</Styled.Section2Text>
+              <ProgressBar progress={pokeStats[0].base_stat} color={'#478070'} />
               <Styled.Section2Text>{pokeStats[0].base_stat} </Styled.Section2Text>
             </Styled.Section2Row>
             <Styled.Section2Row>
               <Styled.Section2Text>{pokeStats[1].stat.name.toUpperCase()}</Styled.Section2Text>
+              <ProgressBar progress={pokeStats[1].base_stat} color={'#478070'} />
               <Styled.Section2Text>{pokeStats[1].base_stat} </Styled.Section2Text>
             </Styled.Section2Row>
             <Styled.Section2Row>
               <Styled.Section2Text>{pokeStats[2].stat.name.toUpperCase()}</Styled.Section2Text>
+              <ProgressBar progress={pokeStats[2].base_stat} color={'#478070'} />
               <Styled.Section2Text>{pokeStats[2].base_stat} </Styled.Section2Text>
             </Styled.Section2Row>
             <Styled.Section2Row>
