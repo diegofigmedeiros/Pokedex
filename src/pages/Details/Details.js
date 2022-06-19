@@ -94,13 +94,13 @@ export default function Details({ route }) {
               </Styled.Section2Column1>
               <Styled.Section2Column2>
                 <Styled.Section2Column2Row1>
-                  <ProgressBar progress={0.5} color={'#478070'} />
+                  <ProgressBar progress={pokeStats[0].base_stat/100} color={'#478070'} />
                 </Styled.Section2Column2Row1>
                   <Styled.Section2Column2Row1>
-                  <ProgressBar progress={0.3} color={'#478070'} />
+                  <ProgressBar progress={(pokeStats[1].base_stat/100)} color={'#478070'} />
                   </Styled.Section2Column2Row1>
                   <Styled.Section2Column2Row1>
-                  <ProgressBar progress={0.7} color={'#478070'} />
+                  <ProgressBar progress={pokeStats[2].base_stat/100} color={'#478070'} />
                   </Styled.Section2Column2Row1>
               </Styled.Section2Column2>
               <Styled.Section2Column3>

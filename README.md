@@ -13,7 +13,7 @@ The candidates should think this challenge as their first task working at Taqtil
 - [✅] Use a FlatList component in List.js;
 - [✅] Refactor all styles to use `styled-components`
 - [✅] Implement a navigation from the List page to the Details page using `react-navigation`;
-- [⚪] Create the Pokemon Details Page using the provided [Figma](https://www.figma.com/file/iIdMT33PA5CUiCdp6kq72J/taqchallenge?node-id=0%3A1) as reference;
+- [✅] Create the Pokemon Details Page using the provided [Figma](https://www.figma.com/file/iIdMT33PA5CUiCdp6kq72J/taqchallenge?node-id=0%3A1) as reference;
 - [✅] Use [PokeAPI](https://pokeapi.co/) to populate the Pokemon List Page (https://pokeapi.co/api/v2/pokemon);
 - [✅] Use  [PokeAPI](https://pokeapi.co/) to populate the Pokemon Details Page (https://pokeapi.co/api/v2/pokemon/ditto);
 - [✅] Implement a share button in the Details page to share a message with the Pokemon's stats.
