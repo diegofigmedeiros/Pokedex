@@ -5,11 +5,11 @@ import { ActivityIndicator } from 'react-native';
 import * as Styled from './styles'
 
 
-export default function LoadingScreen( props ) {
+export default function LoadingImage( props ) {
 
   return (
-    <Styled.LoadingContainer>
+    <Styled.TinyImageContainer >
         <ActivityIndicator size={props.size} />
-    </Styled.LoadingContainer>
+    </Styled.TinyImageContainer>
   )
 }

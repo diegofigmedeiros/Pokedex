@@ -44,16 +44,18 @@ export default function List({ navigation }) {
           data={list}
           keyExtractor={(item) => item.name}
           renderItem={({item}) => (
+
           <View>
             <TouchableOpacity 
             onPress={() => navigation.navigate('Details', {pokename: item.name, name: item.name } )}
             >
-              <View>
+              <Styled.Row>
                 <ListImage name={item.name}/>
                 <Text>{item.name}</Text>
-              </View>
+              </Styled.Row>
             </TouchableOpacity>
           </View>
+
           )}
           />
     </SafeAreaView>

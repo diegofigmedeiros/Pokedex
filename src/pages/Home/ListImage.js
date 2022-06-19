@@ -2,7 +2,7 @@ import * as React from 'react';
 import { SafeAreaView, View } from 'react-native';
 
 import * as Styled from './styles'
-import LoadingScreen from '../Shared/LoadingScreen';
+import LoadingImage from './LoadingImage';
 
 
 export default function ListImage( props ) {
@@ -52,7 +52,7 @@ export default function ListImage( props ) {
 
   if (loading) {
     return (
-        <LoadingScreen size='small'/>
+        <LoadingImage size='small'/>
     )
   }
 
