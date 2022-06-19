@@ -8,8 +8,8 @@ import * as Styled from './styles'
 export default function LoadingImage( props ) {
 
   return (
-    <Styled.TinyImageContainer >
+    <Styled.SmallLoadingContainer>
         <ActivityIndicator size={props.size} />
-    </Styled.TinyImageContainer>
+    </Styled.SmallLoadingContainer>
   )
 }

@@ -52,17 +52,17 @@ export default function ListImage( props ) {
 
   if (loading) {
     return (
-        <LoadingImage size='small'/>
+        <LoadingImage size='large'/>
     )
   }
 
   return (
-    <SafeAreaView>
+    <Styled.ListColumnImage>
       <Styled.TinyImage
         source={{
             uri: pokeImage,
         }}
         />
-    </SafeAreaView>
+    </Styled.ListColumnImage>
   );
 }

@@ -8,8 +8,8 @@ import * as Styled from './styles'
 export default function LoadingScreen( props ) {
 
   return (
-    <Styled.LoadingContainer>
+    <Styled.LargeLoadingContainer>
         <ActivityIndicator size={props.size} />
-    </Styled.LoadingContainer>
+    </Styled.LargeLoadingContainer>
   )
 }

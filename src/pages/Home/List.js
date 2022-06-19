@@ -45,16 +45,24 @@ export default function List({ navigation }) {
           keyExtractor={(item) => item.name}
           renderItem={({item}) => (
 
-          <View>
-            <TouchableOpacity 
-            onPress={() => navigation.navigate('Details', {pokename: item.name, name: item.name } )}
-            >
-              <Styled.Row>
-                <ListImage name={item.name}/>
-                <Text>{item.name}</Text>
-              </Styled.Row>
-            </TouchableOpacity>
-          </View>
+            <SafeAreaView>
+              <Styled.ListButton 
+              onPress={() => navigation.navigate('Details', {pokename: item.name, name: item.name } )}
+              >
+                <Styled.ListRow>
+                  <Styled.ListColumnImage>
+                    <View>
+                      <ListImage name={item.name}/>
+                    </View>
+                  </Styled.ListColumnImage>
+                  <Styled.ListColumnText>
+                    <View>
+                    <Styled.ListText>{item.name}</Styled.ListText>
+                    </View>
+                  </Styled.ListColumnText>
+                </Styled.ListRow>
+              </Styled.ListButton>
+            </SafeAreaView>
 
           )}
           />
