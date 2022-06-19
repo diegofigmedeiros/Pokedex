@@ -35,7 +35,7 @@ export default function Details({ route }) {
   React.useEffect(() => {
     setTimeout(() => {
       fetchPokemon(pokename);
-    }, 1000);
+    }, 100);
 
   }, []);
 
@@ -49,7 +49,7 @@ export default function Details({ route }) {
     setTimeout(() => {
       setLoading(false);
       // console.log(pokeImage)
-    }, 5000);
+    }, 2000);
   }, [pokeImage]);
 
   //===============================================================

@@ -31,7 +31,7 @@ export default function ListImage( props ) {
   React.useEffect(() => {
     setTimeout(() => {
       fetchPokemon(props.name);
-    }, 1000);
+    }, 100);
 
   }, []);
 
@@ -44,7 +44,7 @@ export default function ListImage( props ) {
   React.useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 1500);
   }, [pokeImage]);
 
   //===============================================================

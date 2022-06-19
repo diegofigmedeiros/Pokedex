@@ -30,7 +30,7 @@ export default function List({ navigation }) {
       fetchAPI();
       setLoading(false);
     }, 1000);
-  }, []);
+  }, [list]);
 
   if (loading) {
     return (
