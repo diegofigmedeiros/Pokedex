@@ -4,10 +4,12 @@ import styled from 'styled-components/native';
 export const ListRow = styled.SafeAreaView`
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: center
 `;
 
 export const ListColumnImage = styled.SafeAreaView`
-  width: 60px;
+  align-items: center;
+  width: 70px;
 `;
 
 export const ListColumnText = styled.SafeAreaView`
@@ -21,13 +23,11 @@ export const ListButton = styled.TouchableOpacity`
 `;
 export const ListText = styled.Text`
   color: #1b1e23;
-  font-size:28px;
-  line-height: 48px;
+  font-size: 24px;
 `;
 
 export const SmallLoadingContainer = styled.SafeAreaView`
-  width: 50px;
-  height: 50px;
+  align-items: center;
 `;
 
 export const TinyImage = styled.Image`

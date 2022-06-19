@@ -26,10 +26,10 @@ export default function ShareButton ( props ) {
   };
 
   return (
-    <SafeAreaView>
+    <Styled.ShareButtonContainer>
       <Styled.ShareButton onPress={onShare} >
         <Styled.ShareButtonText>Compartilhar</Styled.ShareButtonText>
       </Styled.ShareButton>
-    </SafeAreaView>
+    </Styled.ShareButtonContainer>
   );
 };
