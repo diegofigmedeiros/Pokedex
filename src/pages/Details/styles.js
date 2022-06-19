@@ -51,7 +51,24 @@ export const Section2Row = styled.SafeAreaView`
   padding: 14px;
 `;
 
-export const Section2Column = styled.SafeAreaView`
+export const Section2Column1 = styled.SafeAreaView`
+  flex: 1;
+  flex-direction: column;
+  flex-wrap: wrap;
+`;
+
+export const Section2Column2 = styled.SafeAreaView`
+  flex: 1;
+  flex-direction: column;
+  flex-wrap: wrap;
+`;
+
+export const Section2Column2Row1 = styled.SafeAreaView`
+  height: 27px;
+  width: 100;
+`;
+
+export const Section2Column3 = styled.SafeAreaView`
   flex: 1;
   flex-direction: column;
   flex-wrap: wrap;
@@ -62,7 +79,7 @@ export const Section2Text = styled.Text`
   padding-right: 16px;
   font-size: 16px;
   color: #1b1e23;
-  width: 50%;
+  width: 100%;
 `;
 
 export const ShareButtonContainer = styled.SafeAreaView`

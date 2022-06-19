@@ -29,7 +29,8 @@ export default function Details({ route }) {
   }
 
   const fetchPokemonImage = async (pokemon) => {
-    setPokeImage(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${JSON.stringify(pokemon.id)}.png`);
+    setPokeImage(`https://raw.githubusercontent.com/PokeAPI/` +
+        `sprites/master/sprites/pokemon/other/official-artwork/${JSON.stringify(pokemon.id)}.png`);
   }
 
   React.useEffect(() => {
@@ -67,6 +68,7 @@ export default function Details({ route }) {
               uri: pokeImage,
           }}/>
         </Styled.ImagePokemonContainer>
+
         <Styled.ImagePokemonContainer>
           <Styled.PokemonStatsSection1>
             <Styled.Section1Row>
@@ -80,22 +82,32 @@ export default function Details({ route }) {
               </Styled.Section1Column>
             </Styled.Section1Row>
           </Styled.PokemonStatsSection1>
+
         </Styled.ImagePokemonContainer>
+
           <Styled.PokemonStatsSection2>
             <Styled.Section2Row>
-              <Styled.Section2Text>{pokeStats[0].stat.name.toUpperCase()}</Styled.Section2Text>
-              <ProgressBar progress={pokeStats[0].base_stat} color={'#478070'} />
-              <Styled.Section2Text>{pokeStats[0].base_stat} </Styled.Section2Text>
-            </Styled.Section2Row>
-            <Styled.Section2Row>
-              <Styled.Section2Text>{pokeStats[1].stat.name.toUpperCase()}</Styled.Section2Text>
-              <ProgressBar progress={pokeStats[1].base_stat} color={'#478070'} />
-              <Styled.Section2Text>{pokeStats[1].base_stat} </Styled.Section2Text>
-            </Styled.Section2Row>
-            <Styled.Section2Row>
-              <Styled.Section2Text>{pokeStats[2].stat.name.toUpperCase()}</Styled.Section2Text>
-              <ProgressBar progress={pokeStats[2].base_stat} color={'#478070'} />
-              <Styled.Section2Text>{pokeStats[2].base_stat} </Styled.Section2Text>
+              <Styled.Section2Column1>
+                <Styled.Section2Text>{pokeStats[0].stat.name.toUpperCase()}</Styled.Section2Text>
+                <Styled.Section2Text>{pokeStats[1].stat.name.toUpperCase()}</Styled.Section2Text>
+                <Styled.Section2Text>{pokeStats[2].stat.name.toUpperCase()}</Styled.Section2Text>
+              </Styled.Section2Column1>
+              <Styled.Section2Column2>
+                <Styled.Section2Column2Row1>
+                  <ProgressBar progress={0.5} color={'#478070'} />
+                </Styled.Section2Column2Row1>
+                  <Styled.Section2Column2Row1>
+                  <ProgressBar progress={0.3} color={'#478070'} />
+                  </Styled.Section2Column2Row1>
+                  <Styled.Section2Column2Row1>
+                  <ProgressBar progress={0.7} color={'#478070'} />
+                  </Styled.Section2Column2Row1>
+              </Styled.Section2Column2>
+              <Styled.Section2Column3>
+                <Styled.Section2Text>{pokeStats[0].base_stat} </Styled.Section2Text>
+                <Styled.Section2Text>{pokeStats[1].base_stat} </Styled.Section2Text>
+                <Styled.Section2Text>{pokeStats[2].base_stat} </Styled.Section2Text>
+              </Styled.Section2Column3>
             </Styled.Section2Row>
             <Styled.Section2Row>
               <ShareButton 
@@ -108,6 +120,7 @@ export default function Details({ route }) {
                 />
             </Styled.Section2Row>
           </Styled.PokemonStatsSection2>
+
       </ScrollView>
   );
 }
