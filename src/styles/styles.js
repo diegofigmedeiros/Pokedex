@@ -1,10 +1,12 @@
 import styled from 'styled-components/native';
+
+
 //import Constants from 'expo-constants';
 
 // width: ${props => props.small ? "" : "100%"};
 // background-color: ${props => props.small ? "#fff" : "#ddd"};
 
-export const Container = styled.View`
+export const ContainerFluid = styled.SafeAreaView`
   flex: 1;
   justify-content: center;
   align-items: center;
@@ -12,9 +14,16 @@ export const Container = styled.View`
   background-color: #ddd;
 `;
 
-// export const Container = styled.View`
-//     width: 100%;
-// `;
+export const ContainerList = styled.SafeAreaView`
+  width: 100%;
+  background-color: #fff;
+`;
+
+export const ListTitles = styled.SafeAreaView`
+  width: 100%;
+  background-color: #ddd;
+`;
+
 
 export const Item = styled.Text`
   color: #000;
@@ -36,6 +45,6 @@ export const TinyImage = styled.Image`
 `;
 
 export const LargeImage = styled.Image`
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height:  300px;
 `;

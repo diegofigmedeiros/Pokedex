@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FlatList, Text, View, TouchableOpacity } from 'react-native';
 
-import { ContainerFluid, Container, ListItem, Item } from '../styles/styles';
+import { ContainerList, ListItem  } from '../styles/styles';
 
 import ListImage from './ListImage';
 import LoadingScreen from './LoadingScreen';
@@ -38,7 +38,7 @@ export default function List({ navigation }) {
   }
 
   return (
-    <Container>
+    <ContainerList>
         <FlatList
           data={list}
           keyExtractor={(item) => item.name}
@@ -55,6 +55,6 @@ export default function List({ navigation }) {
           </View>
           )}
           />
-    </Container>
+    </ContainerList>
   )
 }

@@ -1,5 +1,4 @@
-import * as React from 'react'
-import { View, Text, StyleSheet, StatusBar, SafeAreaView } from 'react-native';
+import * as React from 'react'  
 
 // React Navigation
 // *NavigationContainer is a component which manages our navigation tree and contains the navigation state.

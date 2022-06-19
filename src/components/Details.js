@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { FlatList, StyleSheet, Text, View, Button, Image, ActivityIndicator } from 'react-native';
-import { ContainerFluid, Container,  ListItem, LargeImage, } from '../styles/styles';
+import { FlatList, StyleSheet, Text, View, Button, Image, ActivityIndicator, SafeAreaView, ScrollView } from 'react-native';
+import { ContainerFluid,  ListItem, LargeImage } from '../styles/styles';
 
 
 import LoadingScreen from './LoadingScreen';
@@ -59,19 +59,20 @@ export default function Details({ route }) {
   }
 
   return (
-    <Container>
-      <LargeImage
-        source={{
-          uri: pokeImage,
-        }}
-      />
-      <ListItem>ID: {pokemon.id}</ListItem>
-      <ListItem>NAME: {pokemon.name}</ListItem>
-      <ListItem>WEIGHT: {pokemon.weight}</ListItem>
-      <ListItem>HEIGHT: {pokemon.height}</ListItem>
-      <ListItem>{pokeStats[0].stat.name.toUpperCase()} - {pokeStats[0].base_stat} </ListItem>
-      <ListItem>{pokeStats[1].stat.name.toUpperCase()} - {pokeStats[1].base_stat} </ListItem>
-      <ListItem>{pokeStats[2].stat.name.toUpperCase()} - {pokeStats[2].base_stat} </ListItem>
-    </Container>
+      <ScrollView>
+        <ContainerFluid>
+          <LargeImage
+            source={{
+              uri: pokeImage,
+            }}
+          />
+          <ListItem>NAME: {pokemon.name}</ListItem>
+          <ListItem>WEIGHT: {pokemon.weight}</ListItem>
+          <ListItem>HEIGHT: {pokemon.height}</ListItem>
+          <ListItem>{pokeStats[0].stat.name.toUpperCase()} - {pokeStats[0].base_stat} </ListItem>
+          <ListItem>{pokeStats[1].stat.name.toUpperCase()} - {pokeStats[1].base_stat} </ListItem>
+          <ListItem>{pokeStats[2].stat.name.toUpperCase()} - {pokeStats[2].base_stat} </ListItem>
+        </ContainerFluid>
+      </ScrollView>
   );
 }
