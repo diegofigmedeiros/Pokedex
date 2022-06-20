@@ -9,7 +9,7 @@ export default function ShareButton ( props ) {
   const onShare = async () => {
     try {
       const result = await Share.share({
-        message: `Pokemon: ${props.name}\nPeso: ${props.weight}\nAltura: ${props.height}\nHP: ${props.hp}\nAttack${props.attack}\nDefence: ${props.defense}\n`,
+        message: `Pokemon: ${props.name}\nWeight: ${props.weight}\nHeight: ${props.height}\nHP: ${props.hp}\nAttack: ${props.attack}\nDefence: ${props.defense}\n`,
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
