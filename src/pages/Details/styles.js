@@ -13,8 +13,8 @@ export const PokemonStatsSection1 = styled.SafeAreaView`
   align-items: center;
   width: 100%;
   background-color: #fff;
-  border-top-right-radius: 50;
-  border-top-left-radius: 50;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
 `;
 
 export const Section1Row = styled.SafeAreaView`
@@ -42,8 +42,8 @@ export const PokemonStatsSection2 = styled.SafeAreaView`
   background-color: #fff;
   align-items: center;
   justify-content: center;
-  border-bottom-right-radius: 50;
-  border-bottom-left-radius: 50;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 50px;
 `;
 
 export const Section2Row = styled.SafeAreaView`
@@ -101,7 +101,7 @@ export const ShareButton = styled.TouchableOpacity`
   margin: 10px;
   background-color: #478070;
   text-align: center;
-  border-radius: 50;
+  border-radius: 50px;
   padding: 16px;
 `;
 
